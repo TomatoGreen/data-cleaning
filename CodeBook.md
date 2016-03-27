@@ -20,8 +20,6 @@ The set of variable that were estimated from these signals are
 The acceleration signal from the smartphone accelerometer X axis is in standard gravity units 'g'
 The unit for angular velocity vector measured by the gyroscope for each window sample is radians/second.
 
-# Identifier per Row
-	subject and activity
 #Variable List
 * subject 
 * activity 
