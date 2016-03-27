@@ -7,10 +7,10 @@ run_analysis<-function(){
   }
   
   ## download data and unzip the data to course project data folder
-  ## fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-  ## filePath <- "./courseProjectData/data.zip"
-  ## download.file(fileUrl, destfile=filePath, method="curl")
-  ## unzip(filePath, exdir="./courseProjectData", overwrite = TRUE)
+  fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+  filePath <- "./courseProjectData/data.zip"
+  download.file(fileUrl, destfile=filePath, method="curl")
+  unzip(filePath, exdir="./courseProjectData", overwrite = TRUE)
   
   ## get activities
   activities <- read.table("./courseProjectData/UCI HAR Dataset/activity_labels.txt")
@@ -52,5 +52,6 @@ run_analysis<-function(){
   mtd <- melt(d, id=c("subject", "activity"))
   tidyD <- dcast(mtd, subject + activity ~ variable, mean)
   
+  ## write the tidy data set into a text file
   write.table(tidyD, "./courseProjectData/tidy.txt", row.names = FALSE, quote = FALSE)
 }
